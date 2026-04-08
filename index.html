@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberLock Password Manager</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="background-grid"></div>
+    <main class="container">
+      <header class="app-header">
+        <h1>CyberLock</h1>
+        <p>Secure local password vault</p>
+      </header>
+
+      <section id="login-section" class="card">
+        <h2 id="login-title">Unlock Vault</h2>
+        <p id="login-subtitle">Enter your master password.</p>
+        <form id="login-form">
+          <div class="field">
+            <label for="master-password">Master Password</label>
+            <div class="input-row">
+              <input id="master-password" type="password" required minlength="8" />
+              <button type="button" id="toggle-master" class="ghost-btn">Show</button>
+            </div>
+          </div>
+          <div id="confirm-wrap" class="field hidden">
+            <label for="master-password-confirm">Confirm Master Password</label>
+            <input id="master-password-confirm" type="password" minlength="8" />
+          </div>
+          <button type="submit" class="primary-btn full">Continue</button>
+        </form>
+      </section>
+
+      <section id="app-section" class="hidden">
+        <div class="card">
+          <div class="toolbar">
+            <h2>Vault</h2>
+            <button id="lock-btn" class="danger-btn">Lock</button>
+          </div>
+
+          <form id="entry-form" class="entry-form">
+            <input type="hidden" id="entry-id" />
+            <div class="field">
+              <label for="website">Website</label>
+              <input id="website" type="text" required />
+            </div>
+            <div class="field">
+              <label for="username">Username</label>
+              <input id="username" type="text" required />
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="input-row">
+                <input id="password" type="password" required />
+                <button type="button" id="toggle-entry-password" class="ghost-btn">Show</button>
+              </div>
+              <div class="strength-wrap">
+                <div id="strength-bar" class="strength-bar"></div>
+                <span id="strength-label">Weak</span>
+              </div>
+            </div>
+            <div class="actions-row">
+              <button type="submit" id="save-entry" class="primary-btn">Save Entry</button>
+              <button type="button" id="cancel-edit" class="ghost-btn hidden">Cancel Edit</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Password Generator</h2>
+          <div class="generator-grid">
+            <div class="field">
+              <label for="gen-length">Length</label>
+              <input id="gen-length" type="number" min="8" max="64" value="16" />
+            </div>
+            <label><input id="gen-uppercase" type="checkbox" checked /> Uppercase</label>
+            <label><input id="gen-numbers" type="checkbox" checked /> Numbers</label>
+            <label><input id="gen-symbols" type="checkbox" checked /> Symbols</label>
+          </div>
+          <div class="input-row">
+            <input id="generated-password" type="text" readonly />
+            <button id="generate-btn" type="button" class="ghost-btn">Generate</button>
+            <button id="use-generated-btn" type="button" class="primary-btn">Use</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="toolbar">
+            <h2>Saved Entries</h2>
+            <input id="search-input" type="text" placeholder="Search website or username..." />
+          </div>
+          <div id="entries-list" class="entries-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>
