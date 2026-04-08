@@ -22,15 +22,15 @@ CyberLock is a pure frontend secure password manager built with **HTML, CSS, and
 
 No backend is required.
 
-1. Open `/home/runner/work/CyberLock/CyberLock/index.html` in a modern browser.
+1. Open `index.html` in a modern browser.
 2. Create a master password on first launch.
 3. Unlock with the same master password on later launches.
 
 ## File Structure
 
-- `/home/runner/work/CyberLock/CyberLock/index.html`
-- `/home/runner/work/CyberLock/CyberLock/styles.css`
-- `/home/runner/work/CyberLock/CyberLock/script.js`
+- `index.html`
+- `styles.css`
+- `script.js`
 
 ## Encryption (brief)
 
